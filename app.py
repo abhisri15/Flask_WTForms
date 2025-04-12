@@ -64,8 +64,8 @@ def create_app():
     app.config['WTF_CSRF_ENABLED'] = True  # Disable CSRF for simplicity
     app.config['WTF_CSRF_SECRET_KEY'] = 'Mycsrfsecretkey'
     app.config['WTF_CSRF_TIME_LIMIT'] = 3600  # 1 hour
-    app.config['RECAPTCHA_PUBLIC_KEY'] = '6LdachQrAAAAANL-lJTPL35kEVzY0nkU76qPQW3E'
-    app.config['RECAPTCHA_PRIVATE_KEY'] = '6LdachQrAAAAAM6wQzv6XpjSDNTfJ_J7SFYfK30k'
+    app.config['RECAPTCHA_PUBLIC_KEY'] = 'Mypublickey'
+    app.config['RECAPTCHA_PRIVATE_KEY'] = 'Mysecretkey'
 
     @app.route('/', methods=['GET','POST'])
     def index():
