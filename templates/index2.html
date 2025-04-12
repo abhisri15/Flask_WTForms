@@ -1,0 +1,45 @@
+{% from "_renderfield.html" import renderfield %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+<body>
+    <h1>Login Form</h1>
+    <form method="POST" action="/">
+        {{ form.csrf_token }}
+        <ul>
+            {% for error in form.csrf_token.errors %}
+                <li style="color: red;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+
+        {{ renderfield(form.username) }}
+        {{ renderfield(form.password) }}
+        {{ renderfield(form.age) }}
+        {{ renderfield(form.yesno) }}
+        {{ renderfield(form.email) }}
+        {{ renderfield(form.first_name) }}
+        {{ renderfield(form.last_name) }}
+        {{ renderfield(form.home_phone) }}
+
+        {% if form.mobile_phone %}
+        {{ renderfield(form.mobile_phone) }}
+        {% endif %}
+
+        {% for fields in form.years %}
+            {{ renderfield(fields) }}
+        {% endfor %}
+
+        {{ form.recaptcha }}
+        {% for error in form.recaptcha.errors %}
+            <li style="color: red;">{{ error }}</li>
+        {% endfor %}
+
+        <button>Login</button>
+    </form>
+</body>
+</html>
+

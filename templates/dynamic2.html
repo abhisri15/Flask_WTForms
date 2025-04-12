@@ -1,0 +1,22 @@
+{% from "_renderfield.html" import renderfield %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form</title>
+</head>
+<body>
+    <form method="POST" action="/dynamic">
+        {{ form.csrf_token }}
+        {{ renderfield(form.name) }}
+
+        {% for name in names %}
+        {{ renderfield(form[name]) }}
+        {% endfor %}
+
+        {{ renderfield(form.entrydate) }}
+        <button>Submit</button>
+    </form>
+</body>
+</html>
